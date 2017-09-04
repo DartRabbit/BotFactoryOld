@@ -16,10 +16,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAutoConfiguration
 public class BotFactory extends SpringBootServletInitializer {
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(BotFactory.class);
-    }
+//    @Override
+//    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+//        return application.sources(BotFactory.class);
+//    }
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(new Class<?>[] {BotFactory.class, JpaConfig.class}, args);

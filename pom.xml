@@ -6,44 +6,25 @@
     <groupId>telegram.bot.factory</groupId>
     <artifactId>telegram.bot.factory</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Telegram Bot Factory</name>
-
     <packaging>war</packaging>
 
-    <properties>
-        <java.version>1.8</java.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-        <!-- Spring-Boot -->
-        <spring.boot.version>1.5.6.RELEASE</spring.boot.version>
-
-        <!--PostgreSQL-->
-        <postgresql.version>9.4-1201-jdbc41</postgresql.version>
-
-        <!--HikariCP-->
-        <hikaricp.version>2.5.1</hikaricp.version>
-
-        <!-- Hibernate -->
-        <hibernate.version>5.2.10.Final</hibernate.version>
-        <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
-        <javax-el.version>3.0.1-b08</javax-el.version>
-
-    </properties>
+    <name>botfactory</name>
+    <description>Factory of some bots</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.6.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <dependencies>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
 
-        <!-- Spring-Boot -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+    <dependencies>
 
         <!--Spring Data-->
         <dependency>
@@ -55,15 +36,29 @@
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
 
-        <!--DB-->
+        <!-- Spring-Boot -->
         <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <!--DB-->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <version>42.1.4</version>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <!--TEST-->
@@ -76,32 +71,45 @@
     </dependencies>
 
     <build>
-        <finalName>BotFactory</finalName>
-        <defaultGoal>package</defaultGoal>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.20</version>
-                <configuration>
-                    <argLine>-Dfile.encoding=UTF-8</argLine>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.0.0</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
+
+    <!--<build>-->
+        <!--<finalName>botfactory</finalName>-->
+        <!--<defaultGoal>package</defaultGoal>-->
+        <!--<plugins>-->
+            <!--&lt;!&ndash;<plugin>&ndash;&gt;-->
+                <!--&lt;!&ndash;<groupId>org.springframework.boot</groupId>&ndash;&gt;-->
+                <!--&lt;!&ndash;<artifactId>spring-boot-maven-plugin</artifactId>&ndash;&gt;-->
+            <!--&lt;!&ndash;</plugin>&ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-compiler-plugin</artifactId>-->
+                <!--<version>3.1</version>-->
+                <!--<configuration>-->
+                    <!--<source>${java.version}</source>-->
+                    <!--<target>${java.version}</target>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-surefire-plugin</artifactId>-->
+                <!--<version>2.20</version>-->
+                <!--<configuration>-->
+                    <!--<argLine>-Dfile.encoding=UTF-8</argLine>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-war-plugin</artifactId>-->
+                <!--<version>3.0.0</version>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
 
 </project>
