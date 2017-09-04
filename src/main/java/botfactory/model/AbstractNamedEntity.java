@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-abstract public class AbstractNamedEntity extends AbstractBaseEntity{
+abstract public class AbstractNamedEntity extends AbstractBaseEntity {
 
     @NotBlank
     @Column(name = "name", nullable = false)
@@ -20,12 +20,12 @@ abstract public class AbstractNamedEntity extends AbstractBaseEntity{
         this.name = name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

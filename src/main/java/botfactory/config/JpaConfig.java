@@ -25,7 +25,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackageClasses = Application.class)
 @PropertySource("classpath:db/postgresql.properties")
-public class JpaConfig implements TransactionManagementConfigurer{
+public class JpaConfig implements TransactionManagementConfigurer {
 
     @Value("${dataSource.driverClassName}")
     private String driver;

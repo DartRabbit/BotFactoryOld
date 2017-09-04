@@ -1,5 +1,5 @@
 package botfactory.controllers;
 
-public class AdminRestContorller extends AbstractUserRestController{
+public class AdminRestContorller extends AbstractUserRestController {
 
 }

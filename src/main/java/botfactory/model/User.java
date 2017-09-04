@@ -12,8 +12,8 @@ import javax.persistence.UniqueConstraint;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "email", name = "users_unique_email_idx")} )
-public class User extends AbstractNamedEntity{
+@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "email", name = "users_unique_email_idx")})
+public class User extends AbstractNamedEntity {
 
     @Column(name = "email", nullable = false, unique = true)
     @Email

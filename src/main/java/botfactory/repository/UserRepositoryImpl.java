@@ -1,8 +1,6 @@
 package botfactory.repository;
 
 import botfactory.model.User;
-import botfactory.repository.datajpa.CrudUserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

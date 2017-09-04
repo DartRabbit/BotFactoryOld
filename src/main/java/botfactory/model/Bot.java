@@ -2,8 +2,8 @@ package botfactory.model;
 
 public class Bot extends AbstractNamedEntity {
 
-    private String  token;
-    private User    user;
+    private String token;
+    private User user;
 
     public String getToken() {
         return token;

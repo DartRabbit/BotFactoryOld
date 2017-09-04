@@ -14,7 +14,7 @@ public class IndexController {
     private UserService userService;
 
     @RequestMapping("/")
-    String index(){
+    String index() {
         return "index";
     }
 }
