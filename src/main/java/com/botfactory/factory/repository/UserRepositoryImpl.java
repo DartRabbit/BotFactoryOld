@@ -1,7 +1,6 @@
 package com.botfactory.factory.repository;
 
 import com.botfactory.factory.model.User;
-import com.botfactory.factory.model.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

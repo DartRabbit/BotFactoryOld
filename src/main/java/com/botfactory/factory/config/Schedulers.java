@@ -1,4 +1,4 @@
-package com.botfactory.factory.shedulers;
+package com.botfactory.factory.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,13 +9,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Component
-public class TestSchedule {
+public class Schedulers {
 
-    private static final Logger log = LoggerFactory.getLogger(TestSchedule.class);
+    private static final Logger log = LoggerFactory.getLogger(Schedulers.class);
 
     private SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 60000)
     public void reportCurrentTime() {
         log.info("The time is now {}", dateFormat.format(new Date()));
     }

@@ -7,7 +7,6 @@ import org.hibernate.cfg.Environment;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -24,7 +23,6 @@ import java.util.Properties;
 //@EntityScan(basePackages = {"botfactory.model"})
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackageClasses = Application.class)
-@PropertySource("classpath:db/postgresql.properties")
 public class JpaConfig implements TransactionManagementConfigurer {
 
     @Value("${dataSource.driverClassName}")
@@ -67,7 +65,7 @@ public class JpaConfig implements TransactionManagementConfigurer {
 
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(configureDataSource());
-        entityManagerFactoryBean.setPackagesToScan("botfactory");
+        entityManagerFactoryBean.setPackagesToScan("com.botfactory.factory");
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 
         Properties jpaProperties = new Properties();
