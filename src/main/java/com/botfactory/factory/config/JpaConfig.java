@@ -7,7 +7,12 @@ import org.hibernate.cfg.Environment;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.jdbc.datasource.init.DatabasePopulator;
+import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -52,7 +57,14 @@ public class JpaConfig implements TransactionManagementConfigurer {
         config.setUsername(username);
         config.setPassword(password);
 
-        return new HikariDataSource(config);
+        HikariDataSource dataSource = new HikariDataSource(config);
+
+        Resource initSchema = new ClassPathResource("db/postgresql-init.sql");
+        Resource initData = new ClassPathResource("db/postgresql-populate.sql");
+        DatabasePopulator databasePopulator = new ResourceDatabasePopulator(initSchema, initData);
+        DatabasePopulatorUtils.execute(databasePopulator, dataSource);
+
+        return dataSource;
     }
 
     @Bean
@@ -71,7 +83,7 @@ public class JpaConfig implements TransactionManagementConfigurer {
         Properties jpaProperties = new Properties();
         jpaProperties.put(org.hibernate.cfg.Environment.DIALECT, dialect);
         jpaProperties.put(Environment.SHOW_SQL, show_sql);
-        //jpaProperties.put(Environment.HBM2DDL_AUTO, hbm2ddlAuto);
+        jpaProperties.put(Environment.HBM2DDL_AUTO, hbm2ddlAuto);
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
 
         return entityManagerFactoryBean;
