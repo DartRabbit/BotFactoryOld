@@ -1,4 +1,4 @@
-import botfactory.BotFactory;
+import com.botfactory.factory.BotFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

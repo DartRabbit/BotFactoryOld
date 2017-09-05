@@ -1,4 +1,4 @@
-package botfactory.config;
+package com.botfactory.factory.config;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -73,7 +73,7 @@ public class JpaConfig implements TransactionManagementConfigurer {
         Properties jpaProperties = new Properties();
         jpaProperties.put(org.hibernate.cfg.Environment.DIALECT, dialect);
         jpaProperties.put(Environment.SHOW_SQL, show_sql);
-        jpaProperties.put(Environment.HBM2DDL_AUTO, hbm2ddlAuto);
+        //jpaProperties.put(Environment.HBM2DDL_AUTO, hbm2ddlAuto);
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
 
         return entityManagerFactoryBean;

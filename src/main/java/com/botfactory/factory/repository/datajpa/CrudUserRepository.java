@@ -1,6 +1,6 @@
-package botfactory.repository.datajpa;
+package com.botfactory.factory.repository.datajpa;
 
-import botfactory.model.User;
+import com.botfactory.factory.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

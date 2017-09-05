@@ -1,6 +1,7 @@
-package botfactory.repository;
+package com.botfactory.factory.repository;
 
-import botfactory.model.User;
+import com.botfactory.factory.model.User;
+import com.botfactory.factory.model.User;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package botfactory.controllers;
+package com.botfactory.factory.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

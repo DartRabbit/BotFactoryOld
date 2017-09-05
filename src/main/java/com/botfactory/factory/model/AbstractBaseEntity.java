@@ -1,4 +1,4 @@
-package botfactory.model;
+package com.botfactory.factory.model;
 
 import org.hibernate.Hibernate;
 import org.springframework.data.domain.Persistable;

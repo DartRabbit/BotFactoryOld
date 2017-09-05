@@ -1,4 +1,4 @@
-package botfactory.model;
+package com.botfactory.factory.model;
 
 public class Bot extends AbstractNamedEntity {
 

@@ -3,10 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>telegram.bot.factory</groupId>
-    <artifactId>telegram.bot.factory</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>com.botfactory</groupId>
+    <artifactId>factory</artifactId>
     <packaging>war</packaging>
+
+    <version>1.0-SNAPSHOT</version>
 
     <name>botfactory</name>
     <description>Factory of some bots</description>
@@ -47,7 +48,7 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.1.4</version>
-            <scope>runtime</scope>
+            <!--<scope>runtime</scope>-->
         </dependency>
         <dependency>
             <groupId>com.zaxxer</groupId>
@@ -80,36 +81,36 @@
     </build>
 
     <!--<build>-->
-    <!--<finalName>botfactory</finalName>-->
-    <!--<defaultGoal>package</defaultGoal>-->
-    <!--<plugins>-->
-    <!--&lt;!&ndash;<plugin>&ndash;&gt;-->
-    <!--&lt;!&ndash;<groupId>org.springframework.boot</groupId>&ndash;&gt;-->
-    <!--&lt;!&ndash;<artifactId>spring-boot-maven-plugin</artifactId>&ndash;&gt;-->
-    <!--&lt;!&ndash;</plugin>&ndash;&gt;-->
-    <!--<plugin>-->
-    <!--<groupId>org.apache.maven.plugins</groupId>-->
-    <!--<artifactId>maven-compiler-plugin</artifactId>-->
-    <!--<version>3.1</version>-->
-    <!--<configuration>-->
-    <!--<source>${java.version}</source>-->
-    <!--<target>${java.version}</target>-->
-    <!--</configuration>-->
-    <!--</plugin>-->
-    <!--<plugin>-->
-    <!--<groupId>org.apache.maven.plugins</groupId>-->
-    <!--<artifactId>maven-surefire-plugin</artifactId>-->
-    <!--<version>2.20</version>-->
-    <!--<configuration>-->
-    <!--<argLine>-Dfile.encoding=UTF-8</argLine>-->
-    <!--</configuration>-->
-    <!--</plugin>-->
-    <!--<plugin>-->
-    <!--<groupId>org.apache.maven.plugins</groupId>-->
-    <!--<artifactId>maven-war-plugin</artifactId>-->
-    <!--<version>3.0.0</version>-->
-    <!--</plugin>-->
-    <!--</plugins>-->
+        <!--<finalName>botfactory</finalName>-->
+        <!--<defaultGoal>package</defaultGoal>-->
+        <!--<plugins>-->
+            <!--&lt;!&ndash;<plugin>&ndash;&gt;-->
+            <!--&lt;!&ndash;<groupId>org.springframework.boot</groupId>&ndash;&gt;-->
+            <!--&lt;!&ndash;<artifactId>spring-boot-maven-plugin</artifactId>&ndash;&gt;-->
+            <!--&lt;!&ndash;</plugin>&ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-compiler-plugin</artifactId>-->
+                <!--<version>3.1</version>-->
+                <!--<configuration>-->
+                    <!--<source>${java.version}</source>-->
+                    <!--<target>${java.version}</target>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-surefire-plugin</artifactId>-->
+                <!--<version>2.20</version>-->
+                <!--<configuration>-->
+                    <!--<argLine>-Dfile.encoding=UTF-8</argLine>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-war-plugin</artifactId>-->
+                <!--<version>3.0.0</version>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
     <!--</build>-->
 
 </project>

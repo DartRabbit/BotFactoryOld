@@ -1,13 +1,14 @@
-package botfactory;
+package com.botfactory.factory;
 
-import botfactory.config.JpaConfig;
+import com.botfactory.factory.config.JpaConfig;
+import com.botfactory.factory.config.JpaConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-@SpringBootApplication
-@EnableScheduling
 //@EnableAutoConfiguration
+@EnableScheduling
+@SpringBootApplication
 public class BotFactory {
 
 //    @Override
