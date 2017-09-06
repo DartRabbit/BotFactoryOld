@@ -1,8 +1,9 @@
 package com.botfactory.factory.config;
 
+import com.botfactory.factory.model.User;
+import com.botfactory.factory.repository.datajpa.CrudUserRepository;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import javafx.application.Application;
 import org.hibernate.cfg.Environment;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -27,8 +28,10 @@ import java.util.Properties;
 //@EnableAutoConfiguration
 //@EntityScan(basePackages = {"botfactory.model"})
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackageClasses = Application.class)
-public class JpaConfig implements TransactionManagementConfigurer {
+//@EnableJpaRepositories("com.botfactory.factory.repository")
+@EnableJpaRepositories(basePackageClasses = CrudUserRepository.class,
+        entityManagerFactoryRef = "configureEntityManagerFactory")
+public class JpaConfig implements TransactionManagementConfigurer{
 
     @Value("${dataSource.driverClassName}")
     private String driver;
@@ -68,11 +71,6 @@ public class JpaConfig implements TransactionManagementConfigurer {
     }
 
     @Bean
-    public EntityManager entityManagerFactory() {
-        return configureEntityManagerFactory().getObject().createEntityManager();
-    }
-
-    @Bean
     public LocalContainerEntityManagerFactoryBean configureEntityManagerFactory() {
 
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
@@ -89,6 +87,7 @@ public class JpaConfig implements TransactionManagementConfigurer {
         return entityManagerFactoryBean;
     }
 
+    @Bean
     @Override
     public PlatformTransactionManager annotationDrivenTransactionManager() {
         return new JpaTransactionManager();
