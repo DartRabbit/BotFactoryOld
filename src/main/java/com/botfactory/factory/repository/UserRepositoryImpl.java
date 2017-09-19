@@ -3,12 +3,14 @@ package com.botfactory.factory.repository;
 import com.botfactory.factory.model.User;
 import com.botfactory.factory.repository.datajpa.CrudUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository("userRepository")
 public class UserRepositoryImpl implements UserRepository {
+    private static final Sort SORT_NAME_EMAIL = new Sort("name", "email");
 
     @Autowired
     private CrudUserRepository crudUserRepository;
@@ -20,7 +22,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public boolean delete(int id) {
-        return false;
+        return crudUserRepository.delete(id)!=0;
     }
 
     @Override
@@ -35,6 +37,6 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public List<User> getAll() {
-        return null;
+        return crudUserRepository.findAll(SORT_NAME_EMAIL);
     }
 }

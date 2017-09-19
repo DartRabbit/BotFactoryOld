@@ -2,15 +2,18 @@ package com.botfactory.factory.model;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
+@Access(AccessType.FIELD)
 abstract public class AbstractNamedEntity extends AbstractBaseEntity {
 
     @NotBlank
     @Column(name = "name", nullable = false)
-    private String name;
+    protected String name;
 
     protected AbstractNamedEntity() {
     }

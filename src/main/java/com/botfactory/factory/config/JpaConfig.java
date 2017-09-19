@@ -1,7 +1,9 @@
 package com.botfactory.factory.config;
 
-import com.botfactory.factory.model.User;
+
+
 import com.botfactory.factory.repository.datajpa.CrudUserRepository;
+
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.hibernate.cfg.Environment;
@@ -21,7 +23,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
-import javax.persistence.EntityManager;
 import java.util.Properties;
 
 @Configuration
@@ -87,7 +88,7 @@ public class JpaConfig implements TransactionManagementConfigurer{
         return entityManagerFactoryBean;
     }
 
-    @Bean
+    @Bean("transactionManager")
     @Override
     public PlatformTransactionManager annotationDrivenTransactionManager() {
         return new JpaTransactionManager();
