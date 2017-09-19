@@ -25,11 +25,10 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 
 import java.util.Properties;
 
+import static org.hibernate.cfg.AvailableSettings.DIALECT;
+
 @Configuration
-//@EnableAutoConfiguration
-//@EntityScan(basePackages = {"botfactory.model"})
 @EnableTransactionManagement
-//@EnableJpaRepositories("com.botfactory.factory.repository")
 @EnableJpaRepositories(basePackageClasses = CrudUserRepository.class,
         entityManagerFactoryRef = "configureEntityManagerFactory")
 public class JpaConfig implements TransactionManagementConfigurer{
@@ -63,8 +62,8 @@ public class JpaConfig implements TransactionManagementConfigurer{
 
         HikariDataSource dataSource = new HikariDataSource(config);
 
-        Resource initSchema = new ClassPathResource("db/postgresql-init.sql");
-        Resource initData = new ClassPathResource("db/postgresql-populate.sql");
+        Resource initSchema = new ClassPathResource(db_init);
+        Resource initData = new ClassPathResource(db_populate);
         DatabasePopulator databasePopulator = new ResourceDatabasePopulator(initSchema, initData);
         DatabasePopulatorUtils.execute(databasePopulator, dataSource);
 
@@ -80,7 +79,7 @@ public class JpaConfig implements TransactionManagementConfigurer{
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 
         Properties jpaProperties = new Properties();
-        jpaProperties.put(org.hibernate.cfg.Environment.DIALECT, dialect);
+        jpaProperties.put(DIALECT, dialect);
         jpaProperties.put(Environment.SHOW_SQL, show_sql);
         jpaProperties.put(Environment.HBM2DDL_AUTO, hbm2ddlAuto);
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
